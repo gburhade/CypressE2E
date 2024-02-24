@@ -1,0 +1,25 @@
+name: Parallel Build
+on: push
+jobs:
+  addtoCart-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with: 
+          command: npm run test:addToCart
+
+  registerflow-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with: 
+          command: npm run test:registerTest
+    
